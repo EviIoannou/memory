@@ -1,29 +1,32 @@
-
 var cards = [];
 
 //var img1 = to collect images from HTML with DOM
 
-var patterns = [img1, img2, img]; //img1 up to img8
+var pictures = ["pictures/dog.png","pictures/dolphin.png", 
+                "pictures/ladybug.png", "pictures/lamb.png", "pictures/parrot.png", "pictures/penguin.png", "pictures/tiger.png", "pictures/zebra.png"]; 
 
-var ids = [1, 2, 3, 4, 5, 6, 7, 8];
+var ids = ["dog", "dolphin", "ladybug", "lamb", "parrot", "penguin", "tiger", "zebra"];
 
-function Card (pattern) {
-  this.pattern = pattern;
+function Card (picture, id) {
+  this.picture = picture;
   this.id = id;
 }
 
 function pack () {
+// this function to create 2 of each card
 
-  for ( let i = 0; i < 2; i++) {
+      pictures.forEach( function (picture, index) {
+        
+          let card = new Card (picture, ids[index]);
+          cards.push(card);
 
-    // for (let i = 0; i < patterns.length; i++) {
-
-      patterns.forEach( function (pattern) {
-        let oneCard = new Card (pattern);
-        cards.push(oneCard);
+          let card2 = new Card (picture, ids[index]);
+          cards.push(card2);
+        
       });
-    // };
-
-  };
-
+  
 }
+
+pack();
+
+console.log(cards);
