@@ -29,4 +29,42 @@ function pack () {
 
 pack();
 
+
+function shuffle (deck) {   //deck implies argument here
+  for (let i =(deck.length - 1); i >0; i--){   
+    let j = Math.floor(Math.random() * (i + 1));
+    [deck[i], deck[j]] = [deck[j], deck[i]];
+  };
+  return deck;
+}
+
+shuffle(cards);
+
 console.log(cards);
+
+
+
+function createGame () {
+
+  cards.forEach( function (card) {
+    var visualCard  = document.createElement('div');
+    visualCard.classList.add("flip-card");
+
+    visualCard.innerHTML =  `<div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                  <!-- CSS Style -->
+                                </div>
+                                <div class="flip-card-back">
+                                  <img src="${card.picture}" alt="">
+                                </div>
+                              </div>`;
+
+    var board = document.getElementsByClassName("container");
+    board[0].appendChild(visualCard);
+
+
+  });
+
+}
+
+createGame();
