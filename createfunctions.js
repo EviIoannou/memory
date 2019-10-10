@@ -1,4 +1,5 @@
 //player should only be able to click on two cards
+
 function compareCards() {
   var card1 = document.querySelector();
   var card2 = document.querySelector();
@@ -10,8 +11,8 @@ function compareCards() {
   }
 }
 
-
-//myCard.addEventListener("click", flipCard);
+let container = document.getElementsByClassName("container");
+container.addEventListener("click", flipCard);
 function flipCard () {
-  
+    //we need to fix :hover effect in CSS
 }
