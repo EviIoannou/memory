@@ -52,3 +52,7 @@ body {
   color: white;
   transform: rotateY(180deg);
 }
+
+img {
+  width: 150px;
+}
