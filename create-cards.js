@@ -29,4 +29,15 @@ function pack () {
 
 pack();
 
+
+function shuffle (deck) {   //deck implies argument here
+  for (let i =(deck.length - 1); i >0; i--){   
+    let j = Math.floor(Math.random() * (i + 1));
+    [deck[i], deck[j]] = [deck[j], deck[i]];
+  };
+  return deck;
+}
+
+shuffle(cards);
+
 console.log(cards);
