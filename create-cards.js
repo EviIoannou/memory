@@ -46,12 +46,12 @@ console.log(cards);
 
 function createGame () {
 
-  cards.forEach( function (card) {
+  cards.forEach( function (card, index) {
     var visualCard  = document.createElement('div');
     visualCard.classList.add("flip-card");
 
-    visualCard.innerHTML =  `<div class="flip-card-inner">
-                                <div class="flip-card-front">
+    visualCard.innerHTML =  `<div class="flip-card-inner" >
+                                <div class="flip-card-front" id= ` + index + `>
                                   <!-- CSS Style -->
                                 </div>
                                 <div class="flip-card-back">
@@ -68,3 +68,34 @@ function createGame () {
 }
 
 createGame();
+
+
+var myCard = document.getElementsByClassName("flip-card-inner");
+
+function flipCard (e) {
+  console.log(e.target.id);
+  var cardid = parseInt(e.target.id);
+  myCard[cardid].classList.add("click-card");
+ // setTimeout(remove(cardid), 5000);
+}
+
+
+function remove (e) {
+  //console.log(e.target.id);
+  //var cardid = parseInt(e.target.id);
+  myCard[cardid].classList.remove("click-card");
+}
+
+function flipback () {
+  setTimeout(remove(), 5000)
+}
+
+var board = document.getElementsByClassName("container");
+board[0].addEventListener("click",flipCard);
+board[0].addEventListener("click",flipback);
+
+
+
+
+//e.target.id is how one gets a unique ID for each card
+//e.target.id does not work directly in [ ]
