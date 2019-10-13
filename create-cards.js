@@ -76,19 +76,10 @@ function flipCard (e) {
   console.log(e.target.id);
   var cardid = parseInt(e.target.id);
   myCard[cardid].classList.add("click-card");
- // setTimeout(remove(cardid), 5000);
-}
+ setTimeout(function () {
+   myCard[cardid].classList.remove("click-card");
+ }, 5000)}
 
-
-function remove (e) {
-  //console.log(e.target.id);
-  //var cardid = parseInt(e.target.id);
-  myCard[cardid].classList.remove("click-card");
-}
-
-function flipback () {
-  setTimeout(remove(), 5000)
-}
 
 var board = document.getElementsByClassName("container");
 board[0].addEventListener("click",flipCard);
